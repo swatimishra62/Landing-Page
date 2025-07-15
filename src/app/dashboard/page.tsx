@@ -61,7 +61,7 @@ export default function Dashboard() {
         </div>
         <div className="bg-white rounded-3xl shadow-2xl p-8 min-h-[300px]">
           {!activeSection && (
-            <div className="text-center text-gray-400 text-xl py-20">Please select a section above.</div>
+            <div className="text-center text-gray-400 text-2xl py-20">Please select a section above.</div>
           )}
           {activeSection === "projects" && <ProjectsSection />}
           {activeSection === "clients" && <ClientsSection />}

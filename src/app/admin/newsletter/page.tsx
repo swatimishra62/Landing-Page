@@ -25,7 +25,7 @@ export default function AdminNewsletter() {
       {loading ? (
         <div className="text-center text-gray-500">Loading...</div>
       ) : emails.length === 0 ? (
-        <div className="text-center text-gray-500">No subscribers found.</div>
+        <div className="text-center text-gray-600">No subscribers found.</div>
       ) : (
         <ul className="space-y-2">
           {emails.map((email, idx) => (
