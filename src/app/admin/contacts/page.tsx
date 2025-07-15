@@ -22,19 +22,19 @@ export default function AdminContacts() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto p-4 sm:p-8">
-      <h2 className="text-2xl font-bold mb-6">Contact Form </h2>
+    <div className="max-w-4xl mx-auto p-4 sm:p-8 bg-blue-100 rounded-2xl shadow-md">
+      <h2 className="text-2xl font-bold mb-6 text-blue-700">Contact Form Details</h2>
       {loading ? (
         <div>Loading...</div>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full bg-white rounded shadow text-sm">
             <thead>
-              <tr className="bg-gray-100">
-                <th className="p-3 text-left">Full Name</th>
-                <th className="p-3 text-left">Email</th>
-                <th className="p-3 text-left">Mobile</th>
-                <th className="p-3 text-left">City</th>
+              <tr className="bg-blue-100">
+                <th className="p-3 text-left text-blue-700">Full Name</th>
+                <th className="p-3 text-left text-blue-700">Email</th>
+                <th className="p-3 text-left text-blue-700">Mobile</th>
+                <th className="p-3 text-left text-blue-700">City</th>
               </tr>
             </thead>
             <tbody>

@@ -11,7 +11,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: any) => {
     try {
-      await axios.post("/api/contact", data);
+      await axios.post("/api/contacts", data);
       alert("Your message has been submitted!");
       reset();
     } catch (err) {
