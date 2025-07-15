@@ -30,3 +30,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+layer base {
+  :root {
+    --bg: 255 255 255;
+    --fg: 0 0 0;
+  }
+
+  .dark {
+    --bg: 23 23 23;     /* Tailwind zinc-900 */
+    --fg: 255 255 255;  /* white */
+  }
+
+  body {
+    @apply bg-[rgb(var(--bg))] text-[rgb(var(--fg))];
+  }
+}
