@@ -1,6 +1,4 @@
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 
 "use client";
 import { useState } from "react";
@@ -10,7 +8,6 @@ import NewsletterSection from "../landing/newsletter/NewsletterSection";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { FaProjectDiagram, FaUsers, FaRegListAlt, FaEnvelopeOpenText } from "react-icons/fa";
-
 
 const SECTIONS = [
   { key: "projects", label: "Our Projects", icon: <FaProjectDiagram size={32} className="text-blue-500" /> },
@@ -32,8 +29,7 @@ export default function Dashboard() {
       await axios.post("/api/contacts", data);
       setContactMsg("Your message has been submitted!");
       reset();
-    } catch (err) {
-      console.log(err)
+    } catch  {
       setContactMsg("Failed to submit form.");
     } finally {
       setContactLoading(false);
@@ -61,30 +57,30 @@ export default function Dashboard() {
         </div>
         <div className="bg-white rounded-3xl shadow-2xl p-8 min-h-[300px]">
           {!activeSection && (
-            <div className="text-center text-gray-400 text-2xl py-20">Please select a section above.</div>
+            <div className="text-center text-gray-400 text-xl py-20">Please select a section above.</div>
           )}
           {activeSection === "projects" && <ProjectsSection />}
           {activeSection === "clients" && <ClientsSection />}
           {activeSection === "newsletter" && <NewsletterSection />}
           {activeSection === "contact" && (
-            <div className="max-w-lg mx-auto bg-gradient-to-br from-orange-100 via-yellow-50 to-pink-100 rounded-2xl shadow-lg p-5 sm:p-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 text-orange-600 flex items-center justify-center gap-2">
+            <div className="max-w-lg mx-auto bg-gradient-to-br from-orange-100 via-yellow-50 to-pink-100 rounded-2xl shadow-lg p-10">
+              <h2 className="text-3xl font-bold text-center mb-6 text-orange-600 flex items-center justify-center gap-2">
                 <FaEnvelopeOpenText className="inline-block text-orange-400" /> Contact Us
               </h2>
-              <form onSubmit={handleSubmit(onContactSubmit)} className="space-y-4 sm:space-y-5">
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <input {...register("name")} placeholder="Full Name" className="w-full sm:w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200 text-sm" required />
-                  <input {...register("email")} placeholder="Email Address" type="email" className="w-full sm:w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200 text-sm" required />
+              <form onSubmit={handleSubmit(onContactSubmit)} className="space-y-5">
+                <div className="flex gap-4">
+                  <input {...register("name")} placeholder="Full Name" className="w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200" required />
+                  <input {...register("email")} placeholder="Email Address" type="email" className="w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200" required />
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <input {...register("mobile")} placeholder="Mobile Number" type="tel" className="w-full sm:w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200 text-sm" required />
-                  <input {...register("city")} placeholder="City" className="w-full sm:w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200 text-sm" required />
+                <div className="flex gap-4">
+                  <input {...register("mobile")} placeholder="Mobile Number" type="tel" className="w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200" required />
+                  <input {...register("city")} placeholder="City" className="w-1/2 p-3 rounded border border-gray-200 outline-none text-black shadow-sm focus:ring-2 focus:ring-orange-200" required />
                 </div>
-                <button type="submit" className="w-full bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white font-semibold py-3 rounded shadow-lg transition text-sm sm:text-base" disabled={contactLoading}>
+                <button type="submit" className="w-full bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white font-semibold py-3 rounded shadow-lg transition" disabled={contactLoading}>
                   {contactLoading ? "Submitting..." : "Send Message"}
                 </button>
               </form>
-              {contactMsg && <p className="mt-4 sm:mt-6 text-center text-green-600 text-base sm:text-lg font-semibold">{contactMsg}</p>}
+              {contactMsg && <p className="mt-6 text-center text-green-600 text-lg font-semibold">{contactMsg}</p>}
             </div>
           )}
         </div>
